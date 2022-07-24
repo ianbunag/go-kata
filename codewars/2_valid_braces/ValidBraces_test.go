@@ -6,7 +6,7 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	. "github.com/yvnbunag/go-kata/2_valid_braces"
+	. "github.com/yvnbunag/go-kata/codewars/2_valid_braces"
 )
 
 func singleTest(str string, res bool) {
