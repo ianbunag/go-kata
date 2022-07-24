@@ -1,6 +1,17 @@
 # Go Kata
 Collection of Go kata challenges
 
+## Install test executable
+```sh
+go install -mod=mod github.com/onsi/ginkgo/v2/ginkgo
+```
+
+## Bootstrap kata test
+```sh
+ginkgo bootstrap
+ginkgo generate GetSum
+```
+
 ## Run tests
 ```sh
 # Run all tests
