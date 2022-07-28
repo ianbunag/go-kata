@@ -6,10 +6,12 @@ Collection of Go kata challenges
 go install -mod=mod github.com/onsi/ginkgo/v2/ginkgo
 ```
 
-## Bootstrap kata test
+## Bootstrap kata
 ```sh
+./scaffold.sh codewars get_sum
+cd codewars/1_get_sum
 ginkgo bootstrap
-ginkgo generate GetSum
+ginkgo generate
 ```
 
 ## Run tests

@@ -14,6 +14,8 @@ package $CHALLENGE
 
 func Challenge() {}
 EOF
+
+  echo "Scaffolded $DIRECTORY"
 }
 
 main $*
