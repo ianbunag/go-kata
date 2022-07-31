@@ -4,6 +4,9 @@ import (
 	"unicode"
 )
 
+// Average time complexity: O(log n)
+// Worst time complexity: 	O(n)
+// Space complexity: 				O(n log n)
 func Wave(words string) []string {
 	wave := []string{}
 

@@ -2,6 +2,9 @@ package duplicate_count
 
 import "strings"
 
+// Average time complexity: O(n)
+// Worst time complexity: 	O(n)
+// Space complexity: 				O(log n)
 func CountDuplicate(value string) (duplicates int) {
 	duplicateMap := make(map[rune]bool)
 

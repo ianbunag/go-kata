@@ -1,9 +1,8 @@
 package find_outlier
 
-func isEven(integer int) bool {
-	return integer%2 == 0
-}
-
+// Average time complexity: O(log n)
+// Worst time complexity	: O(n)
+// Space complexity: 				O(n)
 func FindOutlier(integers []int) int {
 	first := integers[0]
 	second := integers[1]
@@ -26,4 +25,8 @@ func FindOutlier(integers []int) int {
 	}
 
 	return second
+}
+
+func isEven(integer int) bool {
+	return integer%2 == 0
 }

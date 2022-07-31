@@ -5,28 +5,21 @@ type Brace [3]rune
 var LeftBraces = Brace{'(', '{', '['}
 var RightBraces = Brace{')', '}', ']'}
 
-func BraceIndexOf(braces Brace, value rune) int {
-	for index, brace := range braces {
-		if brace == value {
-			return index
-		}
-	}
-
-	return -1
-}
-
+// Average time complexity: O(log n)
+// Worst time complexity: 	O(n)
+// Space complexity:				O(log n)
 func ValidBraces(str string) bool {
 	braceStack := []rune{}
 
 	for _, value := range []rune(str) {
-		leftIndex := BraceIndexOf(LeftBraces, value)
+		leftIndex := braceIndexOf(LeftBraces, value)
 
 		if leftIndex > -1 {
 			braceStack = append(braceStack, value)
 			continue
 		}
 
-		rightIndex := BraceIndexOf(RightBraces, value)
+		rightIndex := braceIndexOf(RightBraces, value)
 
 		if len(braceStack) == 0 {
 			return false
@@ -42,4 +35,17 @@ func ValidBraces(str string) bool {
 	}
 
 	return len(braceStack) == 0
+}
+
+// Average time complexity:O(log n)
+// Worst time complexity: O(n)
+// Space complexity: 			O(1)
+func braceIndexOf(braces Brace, value rune) int {
+	for index, brace := range braces {
+		if brace == value {
+			return index
+		}
+	}
+
+	return -1
 }

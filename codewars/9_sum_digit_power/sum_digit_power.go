@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+// Average time complexity: O(log n)
+// Worst time complexity:	 	O(n)
+// Space complexity: 				O(log n)
 func SumDigPow(min, max uint64) (result []uint64) {
 	for ; min <= max; min += 1 {
 		if min%10 == 0 {
@@ -18,6 +21,9 @@ func SumDigPow(min, max uint64) (result []uint64) {
 	return
 }
 
+// Average time complexity: O(n)
+// Worst time complexity: 	O(n)
+// Space complexity: 				O(1)
 func sumConsecutivePow(num uint64) (sum uint64) {
 	exponent := uint64(getNumberOfDigits(num))
 
