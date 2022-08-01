@@ -19,6 +19,10 @@ package $CHALLENGE
 func Challenge() {}
 EOF
 
+  cd $DIRECTORY
+  ginkgo bootstrap
+  ginkgo generate
+
   echo "Scaffolded $DIRECTORY"
 }
 
