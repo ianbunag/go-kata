@@ -18,19 +18,6 @@ var _ = Describe("BinarySearchTree", func() {
 		Expect(treeNode.ToList()).To(Equal([]int{1, 2, 3, 4, 5}))
 	})
 
-	It("should be range list-able", func() {
-		treeNode := lib.TreeNode{Value: 1}
-		treeNode.Insert(4)
-		treeNode.Insert(7)
-		treeNode.Insert(10)
-		treeNode.Insert(3)
-		treeNode.Insert(5)
-
-		Expect(treeNode.ToRangeList(1, 10)).To(Equal([]int{1, 3, 4, 5, 7, 10}))
-		Expect(treeNode.ToRangeList(0, 11)).To(Equal([]int{1, 3, 4, 5, 7, 10}))
-		Expect(treeNode.ToRangeList(2, 9)).To(Equal([]int{3, 4, 5, 7}))
-	})
-
 	It("should get node", func() {
 		treeNode := lib.TreeNode{Value: 3}
 		treeNode.Insert(2)
@@ -44,5 +31,16 @@ var _ = Describe("BinarySearchTree", func() {
 		Expect(treeNode.Get(4).Value).To(Equal(4))
 		Expect(treeNode.Get(5).Value).To(Equal(5))
 		Expect(treeNode.Get(6)).To(BeNil())
+	})
+
+	It("should have a zero root node if uninitialized", func() {
+		var treeNode lib.TreeNode
+
+		Expect(treeNode.ToList()).To(Equal([]int{0}))
+
+		treeNode.Insert(2)
+		treeNode.Insert(1)
+
+		Expect(treeNode.ToList()).To(Equal([]int{0, 1, 2}))
 	})
 })

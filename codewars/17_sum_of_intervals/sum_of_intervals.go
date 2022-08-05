@@ -1,77 +1,55 @@
 package sum_of_intervals
 
 import (
-	"github.com/yvnbunag/go-kata/lib"
+	"sort"
 )
 
-// Average time complexity: O(1)
-// Worst time complexity:   O(1)
-// Space complexity:        O(1)
-
-// @TODO review BST
-// @TODO review SOI
+// Average time complexity: O(n)
+// Worst time complexity:   O(n)
+// Space complexity:        O(n log n)
 func SumOfIntervals(intervals [][2]int) (sum int) {
-	intervalsLength := len(intervals)
-	isUpperMap := make(map[int]bool, intervalsLength)
-	treeNode := lib.TreeNode{Value: intervals[0][0]}
+	intervalPoints := []IntervalPoint{}
+	intervalStack := []IntervalPoint{}
+	var lowerInterval IntervalPoint
 
-	for _, interval := range intervals {
-		lowerBound := interval[0]
-		upperBound := interval[1]
+	for _, currentInterval := range intervals {
+		intervalPoints = append(
+			intervalPoints,
+			IntervalPoint{Value: currentInterval[0], Bound: LowerBound},
+			IntervalPoint{Value: currentInterval[1], Bound: UpperBound},
+		)
+	}
 
-		// @TODO investigate intersecting upper and lower
-		isUpperMap[lowerBound] = false
-		isUpperMap[upperBound] = true
+	sort.Slice(intervalPoints, func(x, y int) bool {
+		return intervalPoints[x].Value < intervalPoints[y].Value
+	})
 
-		lowerInserted := treeNode.Insert(lowerBound)
-		upperInserted := treeNode.Insert(upperBound)
-
-		if !lowerInserted && !upperInserted {
+	for _, interval := range intervalPoints {
+		if interval.Bound == LowerBound {
+			intervalStack = append(intervalStack, interval)
 			continue
 		}
 
-		boundSlice := treeNode.ToRangeList(lowerBound, upperBound)
+		lowerIntervalStackLen := len(intervalStack)
+		lowerInterval, intervalStack = intervalStack[lowerIntervalStackLen-1],
+			intervalStack[:lowerIntervalStackLen-1]
 
-		if boundSlice[0] == lowerBound && boundSlice[1] == upperBound {
-			sum += upperBound - lowerBound
-			continue
-		}
-
-		intervalStack := 0
-
-		for nextIndex, next := range boundSlice {
-			if nextIndex == 0 {
-				continue
-			}
-
-			current := boundSlice[nextIndex-1]
-			nextIsUpper, _ := isUpperMap[next]
-
-			if intervalStack == 0 && next == upperBound {
-				sum += next - current
-				// @TODO Do something with interval stack?
-				break
-			}
-
-			if intervalStack == 0 && !nextIsUpper {
-				sum += next - current
-				intervalStack += 1
-				continue
-			}
-
-			if intervalStack > 0 {
-				if nextIsUpper {
-					intervalStack -= 1
-				}
-
-				if !nextIsUpper {
-					intervalStack += 1
-				}
-			}
+		if len(intervalStack) == 0 {
+			sum += interval.Value - lowerInterval.Value
 		}
 	}
 
 	return
 }
 
-type OrderedSlice []int
+type IntervalBound int
+
+type IntervalPoint struct {
+	Value int
+	Bound IntervalBound
+}
+
+const (
+	LowerBound IntervalBound = iota
+	UpperBound
+)

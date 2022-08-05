@@ -7,8 +7,6 @@ type TreeNode struct {
 }
 
 func (treeNode *TreeNode) Insert(value int) bool {
-	// @TODO panic nil tree
-
 	if treeNode.Value > value {
 		if treeNode.left == nil {
 			treeNode.left = &TreeNode{Value: value}
@@ -38,22 +36,6 @@ func (treeNode *TreeNode) ToList() (result []int) {
 
 	if treeNode.right != nil {
 		result = append(result, treeNode.right.ToList()...)
-	}
-
-	return
-}
-
-func (treeNode *TreeNode) ToRangeList(first, last int) (result []int) {
-	if treeNode.left != nil {
-		result = append(result, treeNode.left.ToRangeList(first, last)...)
-	}
-
-	if treeNode.Value >= first && treeNode.Value <= last {
-		result = append(result, treeNode.Value)
-	}
-
-	if treeNode.right != nil {
-		result = append(result, treeNode.right.ToRangeList(first, last)...)
 	}
 
 	return
