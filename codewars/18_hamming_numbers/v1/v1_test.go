@@ -31,9 +31,9 @@ var _ = Describe("18HammingNumbers_v1", func() {
 	})
 
 	Context("FindHammingNumbers", func() {
-		defer GinkgoRecover()
-
-		Expect(FindHammingNumbers(0, 10)).To(Equal([]uint{1, 2, 3, 4, 5, 6, 8, 9, 10}))
+		It("should find hamming numbers", func() {
+			Expect(FindHammingNumbers(0, 10)).To(Equal([]uint{1, 2, 3, 4, 5, 6, 8, 9, 10}))
+		})
 	})
 
 	Context("IsHammingNumber", func() {
