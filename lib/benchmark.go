@@ -5,10 +5,10 @@ import (
 	"time"
 )
 
-func BenchmarkTime(function func()) {
+func BenchmarkTime(description string, function func()) {
 	start := time.Now()
 	defer func() {
-		log.Printf("Benchmark execution time %s\n", time.Since(start))
+		log.Printf("%s benchmark execution time %s\n", description, time.Since(start))
 	}()
 
 	function()

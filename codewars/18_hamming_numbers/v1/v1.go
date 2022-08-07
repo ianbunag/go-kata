@@ -1,0 +1,87 @@
+package hamming_numbers_v1
+
+import (
+	"sort"
+	"sync"
+
+	"github.com/yvnbunag/go-kata/lib"
+)
+
+// Average time complexity: O(1)
+// Worst time complexity:   O(1)
+// Space complexity:        O(1)
+func Hammer(n int) uint {
+	var exponent uint = 1
+	var from, to uint = 0, lib.PowerUInt(2, exponent)
+	position := uint(n) - 1
+
+	for {
+		hammingNumbers := FindHammingNumbers(from, to)
+		hammingNumbersLen := uint(len(hammingNumbers))
+
+		if (hammingNumbersLen - 1) >= position {
+			return hammingNumbers[position]
+		}
+
+		position -= hammingNumbersLen
+		exponent = exponent + 1
+		from = to + 1
+		to = to + lib.PowerUInt(2, exponent)
+	}
+}
+
+func FindHammingNumbers(from, to uint) (hammingNumbers []uint) {
+	defer func() {
+		sort.Slice(hammingNumbers, func(x, y int) bool {
+			return hammingNumbers[x] < hammingNumbers[y]
+		})
+	}()
+
+	var waitGroup sync.WaitGroup
+	hammingNumbersChannel := make(chan uint, int(to-(from-1)))
+
+	for ; from <= to; from += 1 {
+		waitGroup.Add(1)
+		go func(value uint) {
+			defer waitGroup.Done()
+
+			if IsHammingNumber(value) {
+				hammingNumbersChannel <- value
+			}
+		}(from)
+	}
+	go func() {
+		waitGroup.Wait()
+		close(hammingNumbersChannel)
+	}()
+
+	for value := range hammingNumbersChannel {
+		hammingNumbers = append(hammingNumbers, value)
+	}
+
+	return
+}
+
+func IsHammingNumber(value uint) bool {
+	if value == 0 {
+		return false
+	}
+
+	if value == 1 {
+		return true
+	}
+
+	if value%2 == 0 {
+		return IsHammingNumber(value / 2)
+	}
+
+	if value%3 == 0 {
+		return IsHammingNumber(value / 3)
+	}
+
+	if value%5 == 0 {
+		return IsHammingNumber(value / 5)
+	}
+
+	return false
+}
