@@ -1,4 +1,4 @@
-package lib
+package lib_binary_search_tree
 
 type TreeNode struct {
 	Value int

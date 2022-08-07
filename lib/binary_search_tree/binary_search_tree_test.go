@@ -1,10 +1,9 @@
-package lib_test
+package lib_binary_search_tree_test
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-
-	"github.com/yvnbunag/go-kata/lib"
+	lib "github.com/yvnbunag/go-kata/lib/binary_search_tree"
 )
 
 var _ = Describe("BinarySearchTree", func() {

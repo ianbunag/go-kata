@@ -1,4 +1,4 @@
-package lib
+package lib_generate
 
 import "strings"
 

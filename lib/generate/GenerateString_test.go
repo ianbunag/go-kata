@@ -1,10 +1,10 @@
-package lib_test
+package lib_generate_test
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	. "github.com/yvnbunag/go-kata/lib"
+	. "github.com/yvnbunag/go-kata/lib/generate"
 )
 
 var _ = Describe("GenerateString", func() {

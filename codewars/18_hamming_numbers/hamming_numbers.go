@@ -1,44 +1,35 @@
 package hamming_numbers
 
-import (
-	"sync"
+import lib_uint "github.com/yvnbunag/go-kata/lib/uint"
 
-	"github.com/yvnbunag/go-kata/lib"
-)
-
-// Average time complexity: O(1)
-// Worst time complexity:   O(1)
-// Space complexity:        O(1)
+// Average time complexity: O(n)
+// Worst time complexity:   O(n)
+// Space complexity:        O(n)
 func Hammer(n int) uint {
-	return 0
-}
+	hammerSequence := make([]uint, n)
+	hammerSequence[0] = 1
+	var twoMultiplier, threeMultiplier, fiveMultiplier uint = 2, 3, 5
+	var twoCtr, threeCtr, fiveCtr uint = 0, 0, 0
 
-func CalculateHammingNumber(i, j, k uint) uint {
-	var result uint = 1
-	resultsChannel := make(chan uint, 3)
-	var waitGroup sync.WaitGroup
+	for index := 1; index < n; index += 1 {
+		hammerSequence[index] = lib_uint.Min(
+			twoMultiplier,
+			lib_uint.Min(threeMultiplier, fiveMultiplier),
+		)
 
-	waitGroup.Add(3)
-	go func() {
-		defer waitGroup.Done()
-		resultsChannel <- lib.PowerUInt(2, i)
-	}()
-	go func() {
-		defer waitGroup.Done()
-		resultsChannel <- lib.PowerUInt(3, j)
-	}()
-	go func() {
-		defer waitGroup.Done()
-		resultsChannel <- lib.PowerUInt(5, k)
-	}()
-	go func() {
-		waitGroup.Wait()
-		close(resultsChannel)
-	}()
-
-	for value := range resultsChannel {
-		result *= value
+		if hammerSequence[index] == twoMultiplier {
+			twoCtr += 1
+			twoMultiplier = 2 * hammerSequence[twoCtr]
+		}
+		if hammerSequence[index] == threeMultiplier {
+			threeCtr += 1
+			threeMultiplier = 3 * hammerSequence[threeCtr]
+		}
+		if hammerSequence[index] == fiveMultiplier {
+			fiveCtr += 1
+			fiveMultiplier = 5 * hammerSequence[fiveCtr]
+		}
 	}
 
-	return result
+	return hammerSequence[n-1]
 }

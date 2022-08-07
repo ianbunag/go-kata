@@ -49,4 +49,18 @@ var _ = Describe("18HammingNumbers_v1", func() {
 		Expect(IsHammingNumber(9)).To(Equal(true))
 		Expect(IsHammingNumber(10)).To(Equal(true))
 	})
+
+	Context("CalculateHammingNumber", func() {
+		It("should calculate hamming number", func() {
+			Expect(CalculateHammingNumber(0, 0, 0)).To(Equal(uint(1)))
+			Expect(CalculateHammingNumber(1, 0, 0)).To(Equal(uint(2)))
+			Expect(CalculateHammingNumber(0, 1, 0)).To(Equal(uint(3)))
+			Expect(CalculateHammingNumber(2, 0, 0)).To(Equal(uint(4)))
+			Expect(CalculateHammingNumber(0, 0, 1)).To(Equal(uint(5)))
+			Expect(CalculateHammingNumber(1, 1, 0)).To(Equal(uint(6)))
+			Expect(CalculateHammingNumber(3, 0, 0)).To(Equal(uint(8)))
+			Expect(CalculateHammingNumber(0, 2, 0)).To(Equal(uint(9)))
+			Expect(CalculateHammingNumber(1, 0, 1)).To(Equal(uint(10)))
+		})
+	})
 })

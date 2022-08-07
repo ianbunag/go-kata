@@ -1,4 +1,4 @@
-package lib_test
+package lib_generate_test
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func TestLib(t *testing.T) {
+func TestGenerate(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Lib Suite")
+	RunSpecs(t, "Generate Suite")
 }
