@@ -1,6 +1,6 @@
 package hamming_numbers
 
-import lib_uint "github.com/yvnbunag/go-kata/lib/uint"
+import lib_unsigned "github.com/yvnbunag/go-kata/lib/unsigned"
 
 // Average time complexity: O(n)
 // Worst time complexity:   O(n)
@@ -12,9 +12,9 @@ func Hammer(n int) uint {
 	var twoCtr, threeCtr, fiveCtr uint = 0, 0, 0
 
 	for index := 1; index < n; index += 1 {
-		hammerSequence[index] = lib_uint.Min(
+		hammerSequence[index] = lib_unsigned.Min(
 			twoMultiplier,
-			lib_uint.Min(threeMultiplier, fiveMultiplier),
+			lib_unsigned.Min(threeMultiplier, fiveMultiplier),
 		)
 
 		if hammerSequence[index] == twoMultiplier {

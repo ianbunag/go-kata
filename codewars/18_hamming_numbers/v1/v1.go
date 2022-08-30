@@ -4,7 +4,7 @@ import (
 	"sort"
 	"sync"
 
-	lib_uint "github.com/yvnbunag/go-kata/lib/uint"
+	lib_unsigned "github.com/yvnbunag/go-kata/lib/unsigned"
 )
 
 // Average time complexity: O(1)
@@ -12,7 +12,7 @@ import (
 // Space complexity:        O(1)
 func Hammer(n int) uint {
 	var exponent uint = 1
-	var from, to uint = 0, lib_uint.Power(2, exponent)
+	var from, to uint = 0, lib_unsigned.Power(2, exponent)
 	position := uint(n) - 1
 
 	for {
@@ -26,7 +26,7 @@ func Hammer(n int) uint {
 		position -= hammingNumbersLen
 		exponent = exponent + 1
 		from = to + 1
-		to = to + lib_uint.Power(2, exponent)
+		to = to + lib_unsigned.Power(2, exponent)
 	}
 }
 
@@ -94,15 +94,15 @@ func CalculateHammingNumber(i, j, k uint) uint {
 	waitGroup.Add(3)
 	go func() {
 		defer waitGroup.Done()
-		resultsChannel <- lib_uint.Power(2, i)
+		resultsChannel <- lib_unsigned.Power(2, i)
 	}()
 	go func() {
 		defer waitGroup.Done()
-		resultsChannel <- lib_uint.Power(3, j)
+		resultsChannel <- lib_unsigned.Power(3, j)
 	}()
 	go func() {
 		defer waitGroup.Done()
-		resultsChannel <- lib_uint.Power(5, k)
+		resultsChannel <- lib_unsigned.Power(5, k)
 	}()
 	go func() {
 		waitGroup.Wait()

@@ -1,4 +1,4 @@
-package lib_uint_test
+package lib_unsigned_test
 
 import (
 	"testing"
