@@ -50,4 +50,4 @@ ginkgo --focus-file codewars/1_reverse_words/ReverseWord_test.go ./...
   - Output
 
 ### Cheatsheet
-[[Cheatsheet](https://www.bigocheatsheet.com/)](https://www.bigocheatsheet.com/)
+[Cheatsheet](https://www.bigocheatsheet.com/)
