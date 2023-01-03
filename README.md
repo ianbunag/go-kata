@@ -51,3 +51,8 @@ ginkgo --focus-file codewars/1_reverse_words/ReverseWord_test.go ./...
 
 ### Cheatsheet
 [Cheatsheet](https://www.bigocheatsheet.com/)
+
+## Kata websites
+- https://www.codewars.com/
+- https://neetcode.io/
+- https://leetcode.com/
