@@ -44,8 +44,13 @@ ginkgo --focus-file codewars/1_reverse_words/ReverseWord_test.go ./...
   - O(2) is considered as O(1)
   - O(2n) is considered as O(n)
   - O(nk) is considered as O(n)
-- Space complexity should include everything in the lifecycle of an algorithm:
-  - Inputs
+- Space complexity should include everything created in the lifecycle of the
+  algorithm:
+  - Auxiliary variables (space used while the algorithm is being executed)
+  - Output
+- Space complexity before `2023-01-17` includes everything in the lifecycle of
+  the algorithm
+  - Input
   - Auxiliary variables (space used while the algorithm is being executed)
   - Output
 
