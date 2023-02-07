@@ -1,5 +1,7 @@
 package reverse_linked_list
 
+import . "github.com/yvnbunag/go-kata/lib/list_node"
+
 // Average time complexity: O(n)
 // Worst time complexity:   O(n)
 // Space complexity:        O(n)
@@ -8,50 +10,12 @@ func ReverseList(head *ListNode) *ListNode {
 		return nil
 	}
 
-	reversedHead := &ListNode{head.Val, nil}
+	reversedHead := &ListNode{Val: head.Val, Next: nil}
 
 	for head.Next != nil {
-		reversedHead = &ListNode{head.Next.Val, reversedHead}
+		reversedHead = &ListNode{Val: head.Next.Val, Next: reversedHead}
 		head = head.Next
 	}
 
 	return reversedHead
-}
-
-func NewNodeFromList(values []int) *ListNode {
-	if len(values) < 1 {
-		return nil
-	}
-
-	head := &ListNode{values[0], nil}
-	currentNode := head
-
-	for _, value := range values[1:] {
-		currentNode.Next = &ListNode{value, nil}
-		currentNode = currentNode.Next
-	}
-
-	return head
-}
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-func (listNode *ListNode) ToList() []int {
-	list := []int{}
-	currentNode := listNode
-
-	for {
-		list = append(list, currentNode.Val)
-
-		if currentNode.Next == nil {
-			break
-		}
-
-		currentNode = currentNode.Next
-	}
-
-	return list
 }
