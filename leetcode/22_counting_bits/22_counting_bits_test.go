@@ -1,9 +1,9 @@
-package CountingBits_test
+package counting_bits_test
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	. "github.com/yvnbunag/go-kata/leetcode/22_CountingBits"
+	. "github.com/yvnbunag/go-kata/leetcode/22_counting_bits"
 )
 
 var _ = Describe("22CountingBits", func() {

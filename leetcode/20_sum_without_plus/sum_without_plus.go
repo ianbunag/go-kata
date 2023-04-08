@@ -1,4 +1,4 @@
-package SumWithoutPlus
+package sum_without_plus
 
 // Average time complexity: O(log n)
 // Worst time complexity:   O(log n)

@@ -1,4 +1,4 @@
-package HammingWeight
+package hamming_weight
 
 // Average time complexity: O(1)
 // Worst time complexity:   O(1)

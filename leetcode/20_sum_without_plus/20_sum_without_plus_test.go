@@ -1,9 +1,9 @@
-package SumWithoutPlus_test
+package sum_without_plus_test
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	. "github.com/yvnbunag/go-kata/leetcode/20_SumWithoutPlus"
+	. "github.com/yvnbunag/go-kata/leetcode/20_sum_without_plus"
 )
 
 var _ = Describe("20SumWithoutPlus", func() {

@@ -1,10 +1,10 @@
-package HammingWeight_test
+package hamming_weight_test
 
 import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	. "github.com/yvnbunag/go-kata/leetcode/21_HammingWeight"
+	. "github.com/yvnbunag/go-kata/leetcode/21_hamming_weight"
 )
 
 var _ = Describe("21HammingWeight", func() {

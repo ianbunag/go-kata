@@ -1,4 +1,4 @@
-package SumWithoutPlus_test
+package sum_without_plus_test
 
 import (
 	"testing"

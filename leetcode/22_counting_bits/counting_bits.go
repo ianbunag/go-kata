@@ -1,4 +1,4 @@
-package CountingBits
+package counting_bits
 
 // Average time complexity: O(n)
 // Worst time complexity:   O(n)

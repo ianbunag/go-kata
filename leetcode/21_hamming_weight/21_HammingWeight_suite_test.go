@@ -1,4 +1,4 @@
-package CountingBits_test
+package hamming_weight_test
 
 import (
 	"testing"
@@ -7,7 +7,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-func Test22CountingBits(t *testing.T) {
+func Test21HammingWeight(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "22CountingBits Suite")
+	RunSpecs(t, "21HammingWeight Suite")
 }
