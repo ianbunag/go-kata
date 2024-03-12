@@ -10,8 +10,6 @@ go install -mod=mod github.com/onsi/ginkgo/v2/ginkgo
 ```sh
 ./scaffold.sh codewars get_sum
 cd codewars/1_get_sum
-ginkgo bootstrap
-ginkgo generate
 ```
 
 ## Run tests
