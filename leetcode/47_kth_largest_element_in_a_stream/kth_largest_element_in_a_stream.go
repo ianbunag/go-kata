@@ -54,7 +54,7 @@ func (kthLargest *KthLargest) Push(x interface{}) {
 
 func (kthLargest *KthLargest) Pop() interface{} {
 	current := kthLargest.minHeap
-	value := (current)[len(current)-1]
+	value := current[len(current)-1]
 	kthLargest.minHeap = current[:len(current)-1]
 
 	return value
