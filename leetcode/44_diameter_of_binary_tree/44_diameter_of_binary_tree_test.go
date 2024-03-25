@@ -8,17 +8,17 @@ import (
 )
 
 var _ = Describe("44DiameterOfBinaryTree", func() {
-	It("it should return -1 on nil tree", func() {
+	It("should return -1 on nil tree", func() {
 		Expect(DiameterOfBinaryTree(nil)).To(Equal(-1))
 	})
 
-	It("it should return 0 on single node tree", func() {
+	It("should return 0 on single node tree", func() {
 		node1 := New(1)
 
 		Expect(DiameterOfBinaryTree(node1)).To(Equal(0))
 	})
 
-	It("it should return diameter of a simple tree", func() {
+	It("should return diameter of a simple tree", func() {
 		node1 := New(1)
 		node2 := New(2)
 
@@ -27,7 +27,7 @@ var _ = Describe("44DiameterOfBinaryTree", func() {
 		Expect(DiameterOfBinaryTree(node1)).To(Equal(1))
 	})
 
-	It("it should return diameter of a complex tree", func() {
+	It("should return diameter of a complex tree", func() {
 		node1 := New(1)
 		node2 := New(2)
 		node3 := New(3)

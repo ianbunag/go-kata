@@ -8,17 +8,17 @@ import (
 )
 
 var _ = Describe("45BalancedBinaryTree", func() {
-	It("it should return true on nil tree", func() {
+	It("should return true on nil tree", func() {
 		Expect(IsBalanced(nil)).To(Equal(true))
 	})
 
-	It("it should return true on single node tree", func() {
+	It("should return true on single node tree", func() {
 		node1 := New(1)
 
 		Expect(IsBalanced(node1)).To(Equal(true))
 	})
 
-	It("it should return true on balanced tree", func() {
+	It("should return true on balanced tree", func() {
 		node3 := New(3)
 		node7 := New(7)
 		node9 := New(9)
@@ -33,7 +33,7 @@ var _ = Describe("45BalancedBinaryTree", func() {
 		Expect(IsBalanced(node3)).To(Equal(true))
 	})
 
-	It("it should return false on unbalanced tree", func() {
+	It("should return false on unbalanced tree", func() {
 		node1 := New(1)
 		node2A := New(2)
 		node2B := New(2)

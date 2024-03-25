@@ -7,7 +7,7 @@ import (
 )
 
 var _ = Describe("47KthLargestElementInAStream", func() {
-	It("it should return kth largest element in a stream", func() {
+	It("should return kth largest element in a stream", func() {
 		kthLargest := Constructor(3, []int{4, 5, 8, 2})
 
 		Expect(kthLargest.Add(3)).To(Equal(4))

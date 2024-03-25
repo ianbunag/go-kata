@@ -8,16 +8,16 @@ import (
 )
 
 var _ = Describe("46MinCostClimbingStairs", func() {
-	It("it should return min cost of array with two values", func() {
+	It("should return min cost of array with two values", func() {
 		Expect(MinCostClimbingStairs([]int{10, 15})).To(Equal(10))
 		Expect(MinCostClimbingStairs([]int{15, 10})).To(Equal(10))
 	})
 
-	It("it should return 15 on [10, 15, 20]", func() {
+	It("should return 15 on [10, 15, 20]", func() {
 		Expect(MinCostClimbingStairs([]int{10, 15, 20})).To(Equal(15))
 	})
 
-	It("it should return 6 on [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]", func() {
+	It("should return 6 on [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]", func() {
 		Expect(MinCostClimbingStairs([]int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1})).To(Equal(6))
 	})
 })
