@@ -9,7 +9,7 @@ import (
 
 func dotest(m, n int, exp [][]int) {
 	var ans = ListSquared(m, n)
-	Expect(ans).To(Equal(exp))
+	Expect(ans).To(ConsistOf(exp))
 }
 
 var _ = Describe("35SquareSumOfSquaredDivisors", func() {
