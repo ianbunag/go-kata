@@ -12,7 +12,7 @@ var _ = Describe("2GroupAnagrams", func() {
 		expected := [][]string{
 			{"a"},
 		}
-		Expect(result).To(Equal(expected))
+		Expect(result).To(ConsistOf(expected))
 	})
 
 	It("should group empty string", func() {
@@ -20,7 +20,7 @@ var _ = Describe("2GroupAnagrams", func() {
 		expected := [][]string{
 			{""},
 		}
-		Expect(result).To(Equal(expected))
+		Expect(result).To(ConsistOf(expected))
 	})
 
 	It("should group anagrams", func() {
@@ -30,6 +30,6 @@ var _ = Describe("2GroupAnagrams", func() {
 			{"tan", "nat"},
 			{"bat"},
 		}
-		Expect(result).To(Equal(expected))
+		Expect(result).To(ConsistOf(expected))
 	})
 })
