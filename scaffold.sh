@@ -13,6 +13,7 @@ function main() {
   cat << EOF >> $SCRIPT
 package $CHALLENGE
 
+// Challenge
 // Worst time complexity:   O(1)
 // Average time complexity: O(1)
 // Space complexity:        O(1)
